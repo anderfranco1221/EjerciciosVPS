@@ -10,4 +10,7 @@ app.controller("formulario", function($scope,$http){
         $scope.misDatos.push($scope.usuario);
         $scope.usuario={};
     }
+    $scope.eliminar=function(x){
+        $scope.misDatos.splice(x,1);
+    }
 });
