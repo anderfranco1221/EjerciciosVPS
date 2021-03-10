@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="Layaut/estilos.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="controladores/modelo.js"></script>
+    <script src="controladores/controladorModel.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="Modulo" ng-controller="controladorModel" > 
+    <p ng-bind="areglo[5]"></p>
+    <br>
+    <input type="number" name="numero" ng-model="numero">
+     <p ng-bind="numero"></p>
+    <br>
+    <form name="misInputs">
+    <input type="email" name="correos" ng-model="correo">
+    <br>
+    <h1>Estado</h1>
+
+    <p> Valido: <strong ng-bind="misInputs.correos.$valid"></strong> (si es verdadero el campo cumple con todos lo criterios)</p>
+    <p>Dirty: <strong ng-bind="misInputs.correos.$dirty"></strong> (if true, the value has been changed).</p>
+    <p>Touched: <strong ng-bind="misInputs.correos.$touched"></strong> (if true, the field has been in focus)
+    <p></p>
+    <p></p>
+    <br>
+   
+    <h3>Precios</h3>
+    <ul>
+        <li ng-repeat="numeros in areglo">
+                {{numeros | currency }}
+        </li>
+    </ul>
+    <br>
+    <h3>Mañusculas</h3>
+    <input type="text" ng-model="filtro">
+    <ul>
+        <li ng-repeat="name in nombre | filter: filtro ">
+            {{name | uppercase}}
+        </li>
+    </ul>
+</form>
+</body>
+</html>

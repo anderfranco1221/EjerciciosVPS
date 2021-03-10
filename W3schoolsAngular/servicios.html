@@ -1,0 +1,41 @@
+
+<html >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <script src="angular-1.6.9/angular.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="controladores/modelo.js"></script>
+    <script src="Servicios/servicios.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app='Modulo'>
+    
+    <div  ng-controller= "controladorServicios">
+        <h2>Clientes</h2>
+
+        <table border="3">
+            <tr>
+                <td><strong>#</strong></td>
+                <td><strong>Nombre</strong> </td>
+                <td><strong>Ciudad</strong> </td>
+                <td><strong>Pais</strong></td>
+            </tr>
+            <tr ng-repeat="x in miDatos | filter: filtro  ">
+                <td ng-bind="$index + 1"></td>
+                <td ng-bind="x.Name"></td>
+                <td ng-bind="x.City"></td>
+                <td ng-bind="x.Country"></td>
+            </tr>
+        </table>
+        <br>
+        <input type="text" ng-model="filtro">
+        <br>
+    </div>
+    <div ng-controller="controladorUrl">
+        <footer>
+            <h5 ng-bind="miUrl"></h5>
+        </footer>
+    </div>
+</body>
+</html>

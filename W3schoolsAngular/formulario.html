@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular-1.6.9/angular.min.js"></script>
+    <script src="controladores/modelo.js"></script>
+    <script src="controladores/controladorFormulario.js"></script>
+    <title>Document</title>
+</head>
+<body ng-app="Modulo">
+    <form   ng-controller="formulario" name="formularioV">
+        <table>
+            <tr>
+                <td>Nombre:</td>
+                <td>
+                    <input type="text" name="nombre" ng-model="usuario.Name" required>
+                    <span  ng-show="formularioV.nombre.$error.required">El Nombre es requerido</span>
+                    
+                </td>
+            </tr>
+            <tr>
+                <td>Ciudad :</td>
+                <td>
+                    <input type="text" name="ciudad" ng-model="usuario.City" required>
+                    <span ng-show="formularioV.ciudad.$error.required">La ciudad es requerido</span>
+                </td>
+            </tr>
+            <tr>
+                <td>Pais :</td>
+                <td>
+                    <input type="radio" ng-model="usuario.Country" value="Mexico">Mexico
+                    <input type="radio" ng-model="usuario.Country" value="Rusia">Rusia
+                    <input type="radio" ng-model="usuario.Country" value="Paris">Paris
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <input type="submit" ng-click="agregarUsuario()" value="Enviar" ng-disabled="formularioV.nombre.$error.required || formularioV.ciudad.$error.required">
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table border="2">
+            <tr>
+                <td>Nombre</td>
+                <td>Ciudad</td>
+                <td>Pais</td>
+            </tr>
+            <tr ng-repeat="dato in misDatos">
+                <td ng-bind="dato.Name"></td>
+                <td ng-bind="dato.City"></td>
+                <td ng-bind="dato.Country"></td>
+            </tr>
+        </table>
+        
+    </form>
+    
+</body>
+</html>

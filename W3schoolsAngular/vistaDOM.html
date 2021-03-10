@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="angular-1.6.9/angular.min.js"></script>
+    <script src="controladores/modelo.js"></script>
+    <script src="controladores/controladorDom.js"></script>
+    <title>Document</title>
+</head >
+<body ng-app="Modulo">
+    <div ng-controller="controladorDOM">
+    <h1>Tablas de multiplicar</h1>
+    <br>
+    <label>Ingrese el numero que desea multiplicar</label>
+    <input type="number" ng-model="tabla.numero">
+    <label>Tamaño</label>
+    <input type="number" ng-model="tabla.tamano">
+    <input type="button" ng-click="calcular()" value="Calcular" ng-disabled="interruptor">
+    <br>
+        <strong ng-bind="tabla.numero"></strong>
+    <br>
+     <strong ng-bind="tabla.tamano"></strong>
+    <table>
+        <tr ng-repeat="x in resultado">
+            <td ng-bind="tabla.numero">*</td>
+            <td ng-bind="$index ">=</td>
+            <td ng-bind="x"></td>
+        </tr>
+    </table>
+    <br>
+    <h1 ng-mousemove="contador = contador + 1">Mueve el mouse aqui</h1>
+    <strong ng-bind="contador"></strong>
+    <br>
+    <button ng-click="contar = contar +1">Dar click</button>
+    <p ng-bind="contar"></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="controladores/modelo.js"></script>
+<script src="controladores/directivas.js"></script>
+<script src="controladores/controladores.js"></script>
+<body>
+
+
+    <div ng-app="Modulo" ng-controller="ejemploControlador">
+        <primeradiretiva></primeradiretiva>
+        <w3-test-directive></w3-test-directive>
+        <div primeradiretiva>
+
+        </div>
+        <ul><li ng-repeat="tpname in TopicNames">
+        {{tpname.name}}
+        </li></ul>
+
+        <ul><li ng-repeat="x in vector">
+            {{x.nombre+ " - " +x.edad}}
+            </li></ul>
+            
+        
+        <h2>Ingrese un comentario</h2> 
+
+        <label>Ingrese un correo : </label>
+        <input type="text" ng-model="nuevoComentario.nombre">
+        <p ng-bind="mensaje"></p>
+        <br>
+
+        <label>Ingrese un comentario : </label>
+        <input type="text" ng-model="nuevoComentario.comentario">
+        <br>
+
+        <button ng-click="agregarComentario()" >Agregar Comentario</button>
+        <h5>Comentarios</h5>
+        <ul>
+            <li ng-repeat="z in comentarios">
+                {{z.nombre + " -  "  + z.comentario}}
+            </li>
+        </ul>
+    
+    </div>
+</body>
+</html>
