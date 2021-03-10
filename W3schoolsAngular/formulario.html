@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="angular-1.6.9/angular.min.js"></script>
     <script src="controladores/modelo.js"></script>
     <script src="controladores/controladorFormulario.js"></script>
     <title>Document</title>
@@ -16,8 +16,7 @@
                 <td>Nombre:</td>
                 <td>
                     <input type="text" name="nombre" ng-model="usuario.Name" required>
-                    <span  ng-show="formularioV.nombre.$error.required">El Nombre es requerido</span>
-                    
+                    <span  ng-show="formularioV.nombre.$error.required">El Nombre es requerido</span>           
                 </td>
             </tr>
             <tr>
@@ -44,18 +43,20 @@
         <br>
         <table border="2">
             <tr>
+                <td>#</td>
                 <td>Nombre</td>
                 <td>Ciudad</td>
                 <td>Pais</td>
+                <td></td>
             </tr>
             <tr ng-repeat="dato in misDatos">
+                <td ng-bind="$index+1"></td>
                 <td ng-bind="dato.Name"></td>
                 <td ng-bind="dato.City"></td>
                 <td ng-bind="dato.Country"></td>
+                <td ng-click="eliminar($index)">X</td>
             </tr>
         </table>
-        
     </form>
-    
 </body>
 </html>
