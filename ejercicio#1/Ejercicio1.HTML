@@ -1,0 +1,69 @@
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+</head>
+
+
+<body>
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#">Ejercicios</a>
+          </div>
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Ejercicio #1</a></li>
+            <li><a href="#">Page 1</a></li>
+            <li><a href="#">Page 2</a></li>
+            <li><a href="#">Page 3</a></li>
+          </ul>
+        </div>
+      </nav>
+<div class="jumbotron text center" >
+    <h1 aling="center">Ejercicio #1</h1>
+</div>
+<div class="container" ng-app="myApp" ng-controller="myCtrl">
+    <div class="row">
+    <div class="form-group">
+        <div class="col-sm-6">
+            <label >Jugador # 1: </label> 
+            <input type="text" class="form-control"  ng-model="jugador1.nombre">     
+            <select  ng-model="jugador1.estrategia">
+                <option ng-repeat="x in opciones" value={{x.id}} ng-bind="x.nombre"></option>
+            </select>
+        </div>
+        <div class="col-sm-6">
+            <label>Jugador # 2:</label>
+            <input type="text" class="form-control" ng-model="jugador2.nombre">
+            <select ng-model="jugador2.estrategia">
+                <option ng-repeat="z in opciones" value={{z.id}} ng-bind="z.nombre"></option>
+            </select>
+        </div>
+        <button ng-click="jugar()">Jugar</button>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <p ng-bind='jugador1.nombre'> </p>
+            <P ng-bind='jugador1.estrategia'></P>
+        </div>
+        <div class="col-sm-4">
+            <p ng-bind='resultado'></p>
+        </div>
+        <div class="col-sm-4">
+            <p ng-bind="jugador2.nombre"></p>
+            <p ng-bind="jugador2.estrategia"></p>
+        </div>
+    </div>
+</div>
+
+
+<script src="funcionesAngular.js"></script>
+</body>
+</html>
