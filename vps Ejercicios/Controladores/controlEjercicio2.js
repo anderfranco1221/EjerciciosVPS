@@ -1,39 +1,42 @@
 
 app.controller('controlEjer2' , function($scope){
     // Variables
-    $scope.valida=true;
+    $scope.escondido={};
     $scope.tamano="";
     $scope.mensaje={};
     $scope.vectorA={};
     $scope.vectorB={};
     $scope.respuesta={};
-    //queda pendiente vector solo con grafica
-    $scope.grafica="";
+    $scope.grafica=[];
+    $scope.escondido[0]=false;
+    $scope.escondido[1]=false;
+    //Variable Axuliar que guarda grafica de una respuesta
+    $scope.axugrafica="";
     //Incrementa el numero de campos
     $scope.aumentar=function(){
-        console.log("hola");
+        $scope.mensaje={};
+        console.log("lista", $scope.mensaje);
         for (i=0;i<$scope.tamano;i++){
                 $scope.mensaje[i]= i;
             console.log("hola",i);
         }
         //Habilita el boton de calcular
-        $scope.valida=false;
+        $scope.escondido[0]=true;
     }
     //Calcula la suma de el vector A y el B
     $scope.calcular=function(){
         for(i=0;i<$scope.tamano;i++){
             $scope.respuesta[i] = Number( $scope.vectorA[i]) +  Number($scope.vectorB[i] );
-            $scope.grafica="";
+            $scope.axugrafica="";
             //Se realiza un loop para que genere un grafica
             for(x=0;x< $scope.respuesta[i];x++){
-                $scope.grafica+="*";
+                $scope.axugrafica+="*";
             }
-            console.log("Grafica",$scope.grafica);
-            //Concatena el resultado con la grafica
-            $scope.respuesta[i]= $scope.respuesta[i] + " : " + $scope.grafica;
+            $scope.grafica[i]=$scope.axugrafica;
+
             
         }
-
+        $scope.escondido[1]=true;
     }
     
     

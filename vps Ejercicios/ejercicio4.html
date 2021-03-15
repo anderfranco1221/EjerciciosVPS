@@ -1,0 +1,76 @@
+<div class="jumbotron text center">
+    <h1>Ejercicio #4</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <!--En este div se ingresan el tamaño de la matriz-->
+            <label class="control-label">Ingrese el tamaño de la matriz</label>
+            <input class="form-control" type="number" ng-model="tamano">
+            <button type="button" class="btn btn-info" ng-click="aumentar()">Enviar</button>
+        </div>
+        <div class="col-sm-8" ng-show="escondido[0]">
+            <!--En esta tabla se ingresan los valores de la matriz-->
+            <table class="table table-striped">
+                <tr ng-repeat="x in lista track by $index">
+                    <td ng-bind="x[$index]"></td>
+                    <td ng-repeat="y in x track by $index"> 
+                        <input type="number" ng-model="matriz[$parent.$index][$index]" required>
+                    </td>
+                </tr>
+            </table>
+            <button type="button" class="btn btn-info" ng-click="calcular()" ng-disabled="valida" >Calcular</button>
+        </div>
+    </div>
+    <div class="row" ng-show="escondido[1]">
+        <div class="col-sm-4">
+            <!--En este Div se muestra los datos que estan en la matriz-->
+            <h3>Su matriz es :</h3>
+            <table class="table table-striped">
+                <tr ng-repeat="i in matriz">
+                    <td ng-repeat="y in matriz"><p ng-bind="i[$index]"></p></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <!--Se muestran los resultados y los doatos de las operaciones realizadas-->
+            <h3>Resulatados de las Sumas</h3>
+            <br>
+            <table class="table table-striped">
+                <tr>
+                    <th>Diagonal Derecha</th>
+                    <td ng-repeat="i in matriz"><p ng-bind="matriz[$index][$index]"></p></td>
+                    <td> = </td>
+                    <td ng-bind="resultado[0]"></td>
+                </tr>
+                <tr>
+                    <th>Diagonal Izquierda</th>
+                    <td ng-repeat="x in vector"><p ng-bind="x"></p></td>
+                    <td> = </td>
+                    <td ng-bind="resultado[1]"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <!--En este Div se genera la diferencia calculada por la funcion-->
+            <table class="table table-striped">
+                <tr>
+                    <thead>
+                        <th>Resultado de suma derecha</th>
+                        <th></th>
+                        <th>Resultado de suma Izquierda</th>
+                        <th></th>
+                        <th>Diferencia</th>
+                    </thead>
+                </tr>
+                <tr>
+                    <td ng-bind="resultado[0]"></td>
+                    <td> - </td>
+                    <td ng-bind="resultado[1]"></td>
+                    <td> = </td>
+                    <td ng-bind="resultado[2]"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,8 +1,8 @@
 
 app.controller('controladorEjer1', function($scope){
     //parametros 
-        $scope.jugador1 = {nombre: "", estrategia:"", imagen:"Layout/Imagenes/esperando.gif"};
-        $scope.jugador2 = {nombre: "", estrategia:"", imagen:"Layout/Imagenes/esperando.gif"};
+        $scope.jugador1 = {nombre: "", estrategia:"", imagen:""};
+        $scope.jugador2 = {nombre: "", estrategia:"", imagen:""};
         $scope.resultado='';
         
         $scope.opciones = [
@@ -22,7 +22,7 @@ app.controller('controladorEjer1', function($scope){
             }else{
                 switch($scope.jugador1.estrategia){
                     case '1':
-                        if($scope.jugador2.estrategia=='3' || $scope.jugador2.estrategia == '4' ){
+                        if($scope.jugador2.estrategia=='3' || $scope.jugador2.estrategia == '5' ){
                             $scope.resultado = 'El Jugador #1 es el ganador ';
                         }else{
                             $scope.resultado = 'El Jugador #2 es el ganador ';
@@ -36,7 +36,7 @@ app.controller('controladorEjer1', function($scope){
                         }
                     break
                     case '3':
-                        if ($scope.jugador2.estrategia == 'S' || $scope.jugador2.estrategia == '2') {
+                        if ($scope.jugador2.estrategia == '5' || $scope.jugador2.estrategia == '2') {
                             $scope.resultado = 'El Jugador #1 es el ganador '
                         } else {
                             $scope.resultado = 'El Jugador #2 es el ganador ';
