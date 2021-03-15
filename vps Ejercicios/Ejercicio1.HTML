@@ -1,0 +1,41 @@
+<div class="jumbotron text center" >
+    <h1 aling="center">Ejercicio #1</h1>
+</div>
+<div class="container" >
+    <div class="row">
+    <div class="form-group">
+        <div class="col-sm-6">
+            <label >Jugador # 1: </label> 
+            <input type="text" class="form-control"  ng-model="jugador1.nombre">     
+            <select ng-change="verEstrategia(jugador1.estrategia,1)" ng-model="jugador1.estrategia" >
+                <option ng-repeat="x in opciones" value={{x.id}} ng-bind="x.nombre"></option>
+            </select>
+            <br>
+            <img ng-src="{{jugador1.imagen}}" width="20%" height="20%">
+        </div>
+        <div class="col-sm-6"> 
+            <label>Jugador # 2:</label>
+            <input type="text" class="form-control" ng-model="jugador2.nombre">
+            <select ng-model="jugador2.estrategia" ng-change="verEstrategia(jugador2.estrategia,2)">
+                <option ng-repeat="z in opciones" value={{z.id}} ng-bind="z.nombre"></option>
+            </select>
+            <br>
+            <img ng-src="{{jugador2.imagen}}" width="20%" height="20%">
+        </div>
+    </div>
+    </div>
+    <div class="row"  >
+        <div class="col-sm-4">
+            <p ng-bind="jugador1.nombre"></p>
+            
+        </div>
+        <div class="col-sm-4">
+            <button ng-click="jugar()" aling="center" >Jugar</button>
+            <p ng-bind='resultado'></p>
+        </div>
+        <div class="col-sm-4">
+            <p ng-bind="jugador2.nombre"></p>
+            
+        </div>
+    </div>
+</div>

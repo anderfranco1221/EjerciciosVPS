@@ -1,0 +1,35 @@
+<div class="jumbotron text center">
+    <h1>Ejercicio #4</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4">
+            <label>Ingrese el tamaño de la matriz</label>
+            <input type="number" ng-model="tamano">
+            <p ng-bind="tamano"></p>
+            <button ng-click="aumentar()">Enviar</button>
+        </div>
+        <div class="col-sm-7">
+            <table>
+                <tr ng-repeat="x in lista track by $index">
+                    <td ng-bind="x[$index]+1"></td>
+                    <td ng-repeat="y in x track by $index"> 
+                        <input type="number" ng-model="matriz[$index][vector]">
+                    </td>
+                    
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <table>
+                <tr ng-repeat="i in matriz">
+                    <td ng-repeat="y in matriz"><p ng-bind="i[$index]"></p></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4"></div>
+    </div>
+</div>

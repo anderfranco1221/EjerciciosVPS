@@ -1,0 +1,55 @@
+<div class="jumbotron text center">
+    <h1>Ejercicio #2</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Ingrese el tamaño del arreglo</label>
+            <input type="number" ng-model="tamano">
+            <p ng-bind="tamano"></p>
+            <button ng-click="aumentar()">Enviar</button>
+        </div>
+        <div class="col-sm-6">
+            <table border="3">
+                <tr>
+                    <td>#</td>
+                    <td>Vector A</td>
+                    <td>Vector B</td>
+                </tr>
+                <tr ng-repeat="x in mensaje">
+                    <td ng-bind="$index + 1"></td>
+                    <td><input type='number' ng-model="vectorA[$index]"></td>
+                    <td><input type='number' ng-model="vectorB[$index]"></td>
+                </tr>
+            </table>
+            <button ng-click="calcular()" ng-disabled="valida">Calcular</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <h3>Vector A</h3>
+            <table>
+                <tr ng-repeat="z in vectorA">
+                    <td ng-bind="z"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h3>VectorB</h3>
+            <table>
+                <tr ng-repeat="z in vectorB">
+                    <td ng-bind="z"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h3>Vector C o Respuesta</h3>
+            <table>
+                <tr ng-repeat="i in respuesta">
+                    <td ng-bind="i"></td>
+                </tr>
+            </table>
+        </div>
+        
+    </div>
+</div>

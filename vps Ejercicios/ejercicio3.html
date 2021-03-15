@@ -1,0 +1,45 @@
+<div class="jumbotron text center">
+    <h1>Ejercicio #3</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <label>Ingrese el tamaño del arreglo</label>
+            <input type="number" ng-model="tamano">
+            <button ng-click="aumentar()">Enviar</button>
+            <p ng-bind="tamano"></p>
+        </div>
+        <div class="col-sm-6">
+            <h2>Ingrese número en el arreglo</h2>
+            <table>
+                <tr ng-repeat="n in lista">
+                    <td ng-bind="$index +1"></td>
+                    <td><input type="number" ng-model="arreglo[$index]"> </td>
+                </tr>
+            </table>
+            <button ng-click="calcular()">Calcular</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            <table>
+                <tr ng-repeat="x in lista">
+                    <td ng-repeat="z in lista">+<strong ng-bind="x[$index-1]"></strong></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <h3>Resultados</h3>
+            <table>
+                <tr ng-repeat="x in resultado">
+                    <td ng-bind="x"></td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-4">
+            <label>El máximo : <p ng-bind="minMax[1]"></p></label>
+            <br>
+            <label>El mínimo : <p ng-bind="minMax[0]"></p></label>
+        </div>
+    </div>
+</div>
