@@ -1,0 +1,96 @@
+<div>
+    <div class="modal-header">
+            <h1>Orden</h1>
+        
+    </div>
+    <!--En esta parte Mostrara los Campos a llenar o visualizar de Orders-->
+    <div class="modal-body">
+        <table class="table table-striped">
+            <tr>
+                <td>Cliente</td>
+                <td>
+                    <select class="form-control" ng-change="autocompletarDatosEnvio(orden.CustomerID)" ng-model="orden.CustomerID" ng-options="x.CustomerID as x.CompanyName for x in clientes" ng-disabled="visivilidad">
+                    </select>
+                </td>
+                <td>Empleado</td>
+                <td><select class="form-control" ng-model="orden.EmployeeID" ng-options= "x.EmployeeID as x.LastName +' '+ x.FirstName for x in empleados" ng-disabled="visivilidad"></select></td>
+            </tr>
+            <tr>
+                <td>Entregado Por:</td>
+                <td><select class="form-control" ng-model="orden.ShipVia" ng-options="z.ShipperID as z.CompanyName for z in enviosVia" ng-disabled="visivilidad"></select></td>
+                <td>Nombre del Envio</td>
+                <td><input class="form-control" type="text" ng-model="orden.ShipName" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <td>Valor del envio</td>
+                <td><input class="form-control" type="number" ng-model="orden.Freight" ng-disabled="visivilidad"> </td>
+                <td>Fecha a resivido</td>
+                <td><input class="form-control" type="date" ng-model="orden.RequiredDate" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <td>Pais</td>
+                <td><input class="form-control" type="text" ng-model="orden.ShipCountry" ng-disabled="visivilidad"></td>
+                <td>Ciudad</td>
+                <td><input class="form-control" type="text" ng-model="orden.ShipCity" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <td>Direcion</td>
+                <td><input class="form-control" type="text" ng-model="orden.ShipAddress" ng-disabled="visivilidad"></td>
+                <td>Region</td>
+                <td><input class="form-control" type="text" ng-model="orden.ShipRegion" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <td colspan="2">Codigo Postal</td>
+                <td colspan="2"><input class="form-control" type="text" ng-model="orden.ShipPostalCode" ng-disabled="visivilidad"></td>
+            </tr>
+        </table>
+        <table class="table table-striped">
+            <tr>
+                <thead>
+                    <th>Producto</th>
+                    <th>Cantidad</th>
+                    <th>Descuento</th>
+                    <th>Valor por Unidad</th>
+                    <th>Sub-Total</th>
+                    <TD></TD>
+                </thead>
+            </tr>
+            <tr ng-repeat="z in envioProductos ">
+                <td>
+                    <select class="form-control" ng-change="autocompletarProductos(z.ProductID,$index)" ng-model="z.ProductID" ng-options="x.ProductID as x.ProductName for x in productos" disabled>
+                    </select>
+                </td>
+                <td><input class="form-control" type="number" ng-model="z.Quantity" ng-disabled="visivilidad"></td>
+                <td><input class="form-control" type="number" ng-model="z.Discount" ng-disabled="visivilidad"></td>
+                <td><input class="form-control" type="number" ng-model="z.UnitPrice" ng-disabled="visivilidad"></td>
+                <td ng-bind="z.subTotal | currency"></td><!--ng-init="subTotales[$index] = z.Quantity * (z.UnitPrice-(z.UnitPrice * z.Discount))"-->
+                <td><a ng-click="quitarProducto($index)" ng-show="vista"><span class="glyphicon glyphicon-remove"></span></a></td>
+            </tr>
+            
+            <tr ng-show="vista">
+                <td>
+                    <select class="form-control" ng-change="autocompletarProductos(ordenDetalle.ProductID,null)" ng-model="ordenDetalle.ProductID" ng-options="x.ProductID as x.ProductName for x in productos" >
+                    </select>
+                </td>
+                <td><input class="form-control" type="number" ng-model="ordenDetalle.Quantity" ></td>
+                <td><input class="form-control" type="number" ng-model="ordenDetalle.Discount" ></td>
+                <td><input class="form-control" type="number" ng-model="ordenDetalle.UnitPrice" ></td>
+                <td ng-bind="ordenDetalle.Quantity * (ordenDetalle.UnitPrice-(ordenDetalle.UnitPrice * ordenDetalle.Discount)) | currency"></td>
+                <td><a ng-click="ingresarProductos()" ><span class="glyphicon glyphicon-plus"></span> </a></td>
+            </tr>
+            <tr>
+                <th colspan="4">Total:  {{calcularTotales()}}</th>
+                <td colspan="2" ng-bind="total|currency"> </td>
+            </tr>
+        </table>
+    </div> 
+    <div class="modal-footer">
+        <div class="col-sm-10">
+            <button ng-click="cambiarVisivilidad()" class="btn btn-primary" ng-show="visivilidad">Editar</button>
+            <button ng-click="guardarOrden()" class="btn btn-success" ng-show="vista">Guardar</button>
+        </div>
+        <div class="col-sm-2">
+            <button ng-click="cerrar()" class="btn">Cerrar</button>
+        </div>
+    </div>
+</div>

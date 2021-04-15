@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h3 class="modal-title">Detalles del Producto</p> </h3>
+</div>
+<!--Se encuentran los datos al detalle de los productos-->
+<div class="modal-body">
+    <strong>Seguro que quiere eliminar el producto:</strong>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <td ng-bind="producto.ProductID"></td>
+        </tr>
+        <tr>
+            <th>Nombre</th>
+            <td ng-bind="producto.ProductName"></td>
+        </tr>
+        <tr>
+            <th>Proveedor</th>
+            <td ng-bind="producto.supplier.CompanyName"></td>
+        </tr>
+        <tr>
+            <th>Categoria </th>
+            <TD ng-bind="producto.Category.CategoryName"></TD>
+        </tr> 
+        <tr> 
+            <th>Cantidad por Unidad</th>
+            <td ng-bind="producto.QuantityPerUnit"></td>
+        </tr>
+        <tr>
+            <th>Precio Unidad</th>
+            <td ng-bind="producto.UnitPrice | currency"></td>
+        </tr>
+        <tr>
+            <th>Unidades en Almacen</th>
+            <td ng-bind="producto.UnitsInStock"></td>
+        </tr>
+        <tr>
+            <th>Unidades en Orden</th>
+            <td ng-bind="producto.UnitsOnOrder"></td>
+        </tr>
+    </table>
+</div>
+<div class="modal-footer">
+    <button ng-click="eliminar(producto.ProductID)" class="btn btn-warning">Eliminar</button>
+    <button ng-click="cancelar()" >Cancelar</button>
+</div>

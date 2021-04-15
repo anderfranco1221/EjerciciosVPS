@@ -1,0 +1,54 @@
+<div>
+    <div class="modal-header">
+        <h1>Detalle del Cliente</h1>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped"> 
+            <tr>
+                <th>Nombre de la compañia</th>
+                <td><input class="form-control" type="text" ng-model="cliente.CompanyName" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr >
+                <th>Nombre del contacto</th>
+                <td><input class="form-control" type="text" ng-model="cliente.ContactName" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Titulo del contacto</th>
+                <td><input class="form-control" type="text" ng-model="cliente.ContactTitle" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Dirrecion</th>
+                <td><input class="form-control" type="text" ng-model="cliente.Address" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Ciudad</th>
+                <td><input class="form-control" type="text" ng-model="cliente.City" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td><input class="form-control" type="text" ng-model="cliente.Region" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Codigo Postal</th>
+                <td><input class="form-control" type="text" ng-model="cliente.PostalCode" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td><input class="form-control" type="text" ng-model="cliente.Country" ng-disabled="visivilidad"></td>
+            </tr>  
+            <tr>
+                <th>Telefono</th>
+                <td><input class="form-control" type="text" ng-model="cliente.Phone" ng-disabled="visivilidad"></td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td><input class="form-control" type="text" ng-model="cliente.Fax" ng-disabled="visivilidad"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="cambiarVisivilidad()" class="btn btn-primary" ng-show="visivilidad">Editar</button>
+        <button ng-click="guardar()" class="btn btn-success" ng-show="vista">OK</button>
+        <button ng-click="cerrar()" class="btn btn-warning">Cancelar</button>
+    </div>
+</div>

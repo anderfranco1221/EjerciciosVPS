@@ -5,7 +5,7 @@ app.controller('controlEjer3',function($scope){
     $scope.arreglo={};
     $scope.resultado={};
     $scope.minMax=["",""];
-    $scope.escondido=[false,false];
+    $scope.vista=[false,false];
     // variables declaradas de auxuliares
     $scope.lista={};
     $scope.suma="";
@@ -16,9 +16,14 @@ app.controller('controlEjer3',function($scope){
         for(i=0;i<$scope.tamano;i++){
             $scope.lista[i]=(i);
         }
-        $scope.escondido[0]=true;
+        $scope.vista[0]=true;
     }
-
+    // Esta funcion rellenara los campos del formulario de caracter numerico y su limite es 100
+    $scope.rellenar = function(){
+        for(i=0;i<$scope.tamano;i++){
+            $scope.arreglo[i]=Math.round(Math.random()*100);
+        }
+    }
     $scope.calcular = function(){
         $scope.minMax=["",""];
         for(i=0;i<$scope.tamano;i++){
@@ -60,6 +65,17 @@ app.controller('controlEjer3',function($scope){
                 $scope.minMax[0]=$scope.resultado[j];
             }
         }
-        $scope.escondido[1]=true;
+        $scope.vista[1]=true;
+    }
+    $scope.limpiar = function(){
+        //reinicio todas las variables y esconde la mayoria de los elementos html
+        $scope.tamano="";
+        $scope.arreglo={};
+        $scope.resultado={};
+        $scope.minMax=["",""];
+        $scope.vista=[false,false];
+        $scope.lista={};
+        $scope.suma="";
+        $scope.auxiliar=["",""];
     }
 });

@@ -1,0 +1,66 @@
+<div class="modal-header">
+    <h1>Editar</h1>
+</div>
+<div class="modal-body">
+    <div class="form-group">
+        <table class="table table-striped">
+            <tr>
+                <th><label class="control-label">Nombre : </label></th>
+                <td><input class="form-control" type="text" ng-model="producto.ProductName" ng-disabled="vista[1]"></td>
+            </tr>
+            <tr>
+                <th>Proveedor</th>
+                <td>
+                    <!--input class="form-control" type="text" ng-model="editar.producto.SupplierID" readonly-->
+                    <select ng-model="producto.SupplierID" class="form-control" ng-disabled="vista[1]">
+                        <option ng-repeat=" z in proveedores" ng-value="{{z.SupplierID}}">{{z.CompanyName}}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr >
+                <th>Categoria </th>
+                <TD>
+                    <select ng-model="producto.CategoryID" class="form-control" ng-options="opcion.CategoryID as opcion.CategoryName for opcion in categorias" ng-disabled="vista[1]">
+                        <!--option ng-repeat="x in categorias" ng-value="{{x.CategoryID}}" ng-bind="x.CategoryName"></option-->
+                    </select>
+                </TD>
+            </tr>
+            <tr>
+                <th>Cantidad por Unidad</th>
+                <td><input class="form-control" type="text" ng-model="producto.QuantityPerUnit" ng-disabled="vista[1]"></td>
+            </tr>
+            <tr>
+                <th>Precio Unidad</th>
+                <td><input class="form-control" type="text" ng-model="producto.UnitPrice" ng-disabled="vista[1]"></td>
+            </tr>
+            <tr>
+                <th>Unidades en Almacen</th>
+                <td><input class="form-control" type="text" ng-model="producto.UnitsInStock" ng-disabled="vista[1]"></td>
+            </tr>
+            <tr>
+                <th>Unidades en Orden</th>
+                <td><input class="form-control" ng-model="producto.UnitsOnOrder" readonly></td>
+            </tr>
+            <tr>
+                <th>Nivel de relevacia</th>
+                <td><input class="form-control" type="text" ng-model="producto.ReorderLevel" ng-disabled="vista[1]"></td>
+            </tr>
+            <tr>
+                <!--Queda pendiente este-->
+                <th>Descontinuado</th>
+                <td>
+                    <input type="checkbox" ng-model="producto.Discontinued" ng-disabled="vista[1]">
+                </td>
+            </tr>
+        </table>
+
+        
+        
+    </div>
+</div>
+<div class="modal-footer">
+    <!--No funciona cancelar por ende se comentarea -->
+    <button ng-click="cancelar()" class="btn btn-warning">Cancelar</button>
+    <button ng-click="cambiarVisivilidad()" class="btn btn-primary" ng-show="vista[1]">Editar</button>
+    <button ng-click="guardar()" class="btn btn-success" ng-show="vista[0]"> Guardar </button>
+</div>

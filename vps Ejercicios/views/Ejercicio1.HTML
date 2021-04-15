@@ -1,0 +1,60 @@
+<div class="jumbotron text center" >
+    <h1 aling="center">Ejercicio #1</h1>
+</div>
+<div class="container" >
+    <div class="row">
+    <div class="form-group">
+        <div class="col-sm-6">
+            <!--En este div se encuentrán el formulario de los datos del primer jugador-->
+            <label class="control-label">Jugador # 1: </label> 
+            <input type="text" class="form-control"  ng-model="jugador1.nombre">   
+
+
+            <label class="control-label">Seleccione una estrategia</label>
+            <!--En este select se encuentrala clase para que muestre al jugador su estrategia en imagenes-->
+            <select class="form-control" ng-change="verEstrategia(jugador1.estrategia,1)" ng-model="jugador1.estrategia" >
+                <option ng-repeat="x in opciones" value={{x.id}} ng-bind="x.nombre"></option>
+            </select>
+            <br>
+        </div>
+
+
+        <div class="col-sm-6"> 
+            <!--En este div se encuetrán el formulario de los datos del segundo jugador-->
+            <label class="control-label">Jugador # 2:</label>
+            <input type="text" class="form-control" ng-model="jugador2.nombre">
+            <label class="control-label">Seleccione una estrategia</label>
+            <!--En este select se encuentrala clase para que muestre al jugador su estrategia en imagenes-->
+            <select class="form-control" ng-model="jugador2.estrategia" ng-change="verEstrategia(jugador2.estrategia,2)">
+                <option ng-repeat="z in opciones" value={{z.id}} ng-bind="z.nombre"></option>
+            </select>
+            <br>
+
+
+        </div>
+    </div>
+    </div>
+    <div class="row"  >
+        <div class="col-sm-4">
+            <!--Estrategia y nombre del jugador #1-->
+            <img ng-src="{{jugador1.imagen}}" class="img-circle" width="40%" height="30%" aling="center">
+            <strong ng-bind="jugador1.nombre"></strong>
+        </div>
+
+        <div class="col-sm-4">
+            <!--En este boton se envia los datos de ambos jugadores para saber quien fue el ganador-->
+            <button type="button" class="btn btn-primary btn-lg btn-block" ng-click="jugar()" aling="center" >Jugar</button>
+            <br>
+            <h3 ng-bind='resultado'></h3>
+            <!--Se reinicia la mayoria de las variables-->
+            <button type="button" class="btn btn-warning " ng-click="limpiar()" aling="center">Limpiar</button>
+        </div>
+
+        <div class="col-sm-4">
+            <!--Estrategia y nombre del jugador #2-->
+            <img ng-src="{{jugador2.imagen}}" class="img-circle" width="40%" height="30%">
+            <strong ng-bind="jugador2.nombre"></strong>
+            
+        </div>
+    </div>
+</div>

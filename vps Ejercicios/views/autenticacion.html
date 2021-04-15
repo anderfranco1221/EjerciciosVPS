@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h1>Iniciar Sesión</h1>
+</div>
+<div class="modal-body">
+    <strong ng-bind="respuesta.Error"></strong>
+    <div class="form-group">
+        <label> Usuario</label>
+        <input class="form-control" ng-model="usuario.User" type="text">
+    </div>
+    <div class="form-group">
+        <label> Contraseña</label>
+        <input class="form-control" ng-model="usuario.Password" type="password">
+    </div>
+    <p ng-bind="estado"></p>
+</div>
+<div class="modal-footer">
+    <button class="btn" ng-click="cerrar()">Cancelar</button>
+    <button class="btn btn-primary" ng-click="autenticar()">Ingresar</button>
+</div>

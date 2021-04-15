@@ -1,0 +1,37 @@
+<div class="jumbotron text center">
+    <h1>Editar de los Productos</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <div>
+                <button ng-click="agregar()" class="btn btn-success">Agregar Producto</button>
+            </div>
+            <br>
+            <!--En esta tabla se generan los datos resividos-->
+            <table class="table table-striped">
+                <tr>
+                    <thead>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th>Unidades Disponibles</th>
+                        <th></th>
+                    </thead>
+                </tr>
+                <tr ng-repeat="x in productos ">
+                    <td ng-bind="$index + 1"></td>
+                    <td ng-bind="x.ProductName"></td>
+                    <td ng-bind="x.UnitPrice | currency"></td>
+                    <td ng-bind="x.UnitsInStock"></td>
+                    <td>
+                        <button ng-click="editarProducto(x.ProductID,$index)" class="btn btn-primary">Ver</button>
+                        <!--button ng-click="eliminar(x.ProductID,$index)" class="btn btn-warning">Eliminar</button-->
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

@@ -1,0 +1,56 @@
+<div>
+    <div class="modal-header">
+        <h1>Detalle del Cliente</h1>
+    </div>
+    <div class="modal-body">
+        <table class="table table-striped">
+            <tr>
+                <th>ID</th>
+                <td ng-bind="cliente.CustomerID"></td>
+            </tr>
+            <tr>
+                <th>Nombre de la compañia</th>
+                <td ng-bind="cliente.CompanyName"></td>
+            </tr>
+            <tr >
+                <th>Nombre del contacto</th>
+                <td ng-bind="cliente.ContactName"></td>
+            </tr>
+            <tr>
+                <th>Titulo del contacto</th>
+                <td ng-bind="cliente.ContactTitle"></td>
+            </tr>
+            <tr>
+                <th>Dirrecion</th>
+                <td ng-bind="cliente.Address"></td>
+            </tr>
+            <tr>
+                <th>Ciudad</th>
+                <td ng-bind="cliente.City"></td>
+            </tr>
+            <tr>
+                <th>Region</th>
+                <td ng-bind="cliente.Region"></td>
+            </tr>
+            <tr>
+                <th>Codigo Postal</th>
+                <td ng-bind="cliente.PostalCode"></td>
+            </tr>
+            <tr>
+                <th>Pais</th>
+                <td ng-bind="cliente.Country"></td>
+            </tr>  
+            <tr>
+                <th>Telefono</th>
+                <td ng-bind="cliente.Phone"></td>
+            </tr>
+            <tr>
+                <th>Fax</th>
+                <td ng-bind="cliente.Fax"></td>
+            </tr>
+        </table>
+    </div>
+    <div class="modal-footer">
+        <button ng-click="cerrar()">Atras</button>
+    </div>
+</div>

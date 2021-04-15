@@ -1,0 +1,14 @@
+<div>
+    <div class="modal-header">
+            <h1>Orden</h1>
+        
+    </div>
+    <!--En esta parte Mostrara los Campos a llenar o visualizar de Orders-->
+    <div class="modal-body">
+        <h3>Seguro que quiere eliminar la orden # {{orden.OrderID}}</h3>
+    </div> 
+    <div class="modal-footer">
+        <button class="btn btn-warning" ng-click="eliminar(orden.OrderID)">Eliminar</button>
+        <button class="btn" ng-click="cerrar()">Cerrar</button>
+    </div>
+</div>

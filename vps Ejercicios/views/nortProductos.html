@@ -1,0 +1,35 @@
+
+<div class="jumbotron text center">
+    <h1>Lista de los Productos</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <h2>Productos</h2>
+            <br>
+            <!--En esta tabla se generan los datos resividos-->
+            <table class="table table-striped">
+                <tr>
+                    <thead>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Precio</th>
+                        <th></th>
+                    </thead>
+                </tr>
+                <tr ng-repeat="x in productos ">
+                    <td ng-bind="$index + 1"></td>
+                    <td ng-bind="x.ProductName"></td>
+                    <td ng-bind="x.UnitPrice | currency"></td>
+                    <td>
+                        <button ng-click="verDetalles(x.ProductID)" class="btn btn-info">
+                            <strong>Ver</strong>
+                        </button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>

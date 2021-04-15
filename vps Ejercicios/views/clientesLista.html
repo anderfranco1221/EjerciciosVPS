@@ -1,0 +1,33 @@
+<div class="jumbotron">
+    <h1>Lista de Clientes</h1>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-8">
+            <!--button ng-click="agregar()" class="btn btn-success">Agregar Cliente</button-->
+            <!--La tabla de Clientes no genera automaticamente el ID-->
+            <table class="table table-striped">
+                <tr>
+                    <thead>
+                        <th>#</th>
+                        <th>Empresa</th>
+                        <th>Nombre</th>
+                        <th>Pais</th>
+                        <th></th>
+                    </thead>
+                </tr>
+                <tr ng-repeat="x in clientes">
+                    <td ng-bind="$index+1"></td>
+                    <td ng-bind="x.CompanyName"></td>
+                    <td ng-bind="x.ContactName"></td>
+                    <td ng-bind="x.Country"></td>
+                    <td>
+                        <button ng-click="editarCliente(x.CustomerID,$index)" class="btn btn-info">Ver</button>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+</div>
